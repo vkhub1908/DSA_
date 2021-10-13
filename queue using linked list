@@ -1,0 +1,87 @@
+/************************************************************
+ 
+    Following is the structure of the node class 
+ 
+    class Node {
+    	public :
+    	int data;
+    	Node *next;
+
+    	Node(int data) {
+        	this->data = data;
+        	next = NULL;
+    	}
+	};
+
+**************************************************************/
+
+class Queue 
+{
+	Node *head;
+    Node *tail;
+    int size;
+    // Define the data members
+   public:
+    Queue() 
+    {
+        head=NULL;
+        tail=NULL;
+        size=0;
+		// Implement the Constructor
+	}
+	
+	/*----------------- Public Functions of Stack -----------------*/
+
+	int getSize() 
+    {
+        return size;
+		// Implement the getSize() function
+	}
+
+    bool isEmpty() 
+    {
+        return size==0;
+		// Implement the isEmpty() function
+	}
+
+    void enqueue(int data) 
+    {
+        Node* newnode=new Node(data);
+        if(head==NULL)
+        {
+            head==newnode;
+            tail=newnode;
+        }
+        else
+        {
+            tail->next=newnode;
+            tail=newnode;
+        }
+        size++;
+		// Implement the enqueue() function
+	}
+
+    int dequeue() 
+    {
+        if(head==NULL)
+        {
+            return -1;
+        }
+        int a=head->data;
+        head=head->next;
+        size--;
+        return a;
+        // Implement the dequeue() function
+    }
+
+    int front() 
+    {
+        if(head!=NULL)
+        {
+            return head->data;
+        }
+        else
+            return -1;
+        // Implement the front() function
+    }
+};
